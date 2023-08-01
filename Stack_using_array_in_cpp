@@ -1,0 +1,85 @@
+#include<iostream>
+using namespace std;
+
+int arr[100],n=100,top=-1;
+
+void push(int x)
+{
+    if(top>=n)
+    {
+        cout<<"Stack overflow"<<endl;
+    }
+    else 
+    {
+        top++;
+        arr[top]=x;
+    }
+    
+}
+
+void pop()
+{
+    if(top==-1){
+        cout<<"Stack Underflow"<<endl;
+    }
+    else
+    {
+        cout<<"Popped "<<arr[top]<<endl;
+        top--;
+    }
+    
+}
+
+int peek(){
+    if(top==-1)
+    {
+        cout<<"Stack empty"<<endl;
+        return 0;
+    }
+    else
+    {
+        return arr[top];
+    }
+}
+
+bool isEmpty(){
+    if(top==-1)
+    {
+        return true;
+    }
+    return false;
+}
+
+int size(){
+    return top+1;
+}
+
+void display()
+{
+    for(int i=0;i<=top;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+
+int main()
+{
+    push(10);
+    push(30);
+    push(50);
+    push(20);
+    push(35);
+    cout<<"Empty : "<<isEmpty()<<endl;
+    display();
+    pop();
+    display();
+    cout<<peek()<<endl;
+    cout<<size()<<endl;
+    pop();
+    pop();
+    pop();
+    pop();
+    cout<<"Empty : "<<isEmpty()<<endl;
+    pop();
+}
